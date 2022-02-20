@@ -59,7 +59,7 @@ jobs:
         svn co https://github.com/281677160/openwrt-package/trunk/feeds/packages/utils/filebrowser
         svn co https://github.com/281677160/openwrt-package/trunk/feeds/luci/applications/luci-app-filebrowser
         svn co https://github.com/281677160/openwrt-package/trunk/feeds/luci/applications/luci-app-fileassistant
-        #git clone --depth 1 https://github.com/Porcat/luci-app-filetransfer
+        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
         git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus
         
         #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash &
