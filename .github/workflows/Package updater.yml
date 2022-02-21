@@ -68,7 +68,7 @@ jobs:
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
         svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom
         
-        #git clone --depth 1 https://github.com/iwrt/luci-app-ikoolproxy
+        git clone --depth 1 https://github.com/iwrt/luci-app-ikoolproxy
   
          
 
