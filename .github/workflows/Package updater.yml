@@ -58,9 +58,9 @@ jobs:
         svn co https://github.com/Twinzo1/AdGuardHome/trunk/luci-app-adguardhome &
         svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-adbyby-plus
-        svn co https://github.com/281677160/openwrt-package/filebrowser
-        svn co https://github.com/281677160/openwrt-package/luci-app-filebrowser
-        svn co https://github.com/281677160/openwrt-package/luci-app-fileassistant
+        svn co https://github.com/281677160/openwrt-package/trunk/filebrowser
+        svn co https://github.com/281677160/openwrt-package/trunk/luci-app-filebrowser
+        svn co https://github.com/281677160/openwrt-package/trunk/luci-app-fileassistant
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
         git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus
         
