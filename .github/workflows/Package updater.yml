@@ -70,7 +70,7 @@ jobs:
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
         
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-unblockmusic      
-        git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
+      
 
         svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom
         
