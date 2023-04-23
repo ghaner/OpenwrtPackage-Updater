@@ -29,6 +29,9 @@ on:
   workflow_dispatch:
   repository_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   updatepackage:
     if: github.event.repository.owner.id == github.event.sender.id
