@@ -12,11 +12,7 @@ on:
   schedule:
     - cron: 5 */12 * * *
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'ssh'
-        required: false
-        default: 'false'
+  
   watch:
     types: started
   repository_dispatch:
@@ -148,9 +144,7 @@ jobs:
         bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
         bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
       
-    - name: SSH connection to Actions
-      uses: kiddin9/debugger-action@master
-      if: github.event.inputs.ssh == 'true'
+   
 
     - name: Apply
       continue-on-error: true
