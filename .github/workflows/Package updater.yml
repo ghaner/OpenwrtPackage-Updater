@@ -6,7 +6,7 @@ name: Merge-Upstream
 on:
   push:
     paths:
-      - '.github/workflows/sync.yml'
+      - '.github/workflows/Package updater.yml'
       - '.gitignore'
       - '.diy/**'
   schedule:
@@ -61,27 +61,7 @@ jobs:
         }
         (
         svn co https://github.com/Twinzo1/AdGuardHome/trunk/luci-app-adguardhome &
-        svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
-        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-adbyby-plus
-        svn co https://github.com/281677160/openwrt-package/trunk/filebrowser
-        svn co https://github.com/281677160/openwrt-package/trunk/luci-app-filebrowser
-        svn co https://github.com/281677160/openwrt-package/trunk/luci-app-fileassistant
-        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
-        git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus
         
-        svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash &
-        
-        git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
-        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
-        
-        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-unblockmusic      
-
-
-        svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom
-        
-        git clone --depth 1 https://github.com/iwrt/luci-app-ikoolproxy
-  
-        git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot  
         #git_clone https://github.com/jerrykuku/luci-app-argon-config
         #git_clone https://github.com/sirpdboy/luci-app-advanced
         #git_clone https://github.com/sirpdboy/luci-app-autotimeset
