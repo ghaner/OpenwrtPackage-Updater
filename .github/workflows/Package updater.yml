@@ -29,8 +29,6 @@ on:
   workflow_dispatch:
   repository_dispatch:
 
-
-
 jobs:
   updatepackage:
     if: github.event.repository.owner.id == github.event.sender.id
@@ -53,14 +51,11 @@ jobs:
       run: |
         rm -rf `find -maxdepth 1 -type d -name "[!.]*"`
         git rm -r --cache *
-    #===========================================================================================================       
-    # 下载插件编译源代码
-    # 拉取命令：插件编译源代码的makefile文件在仓库根目录下用git clone命令，其他用svn co命令
-    # 插件源代码路径  插件编译源代码的makefile文件在仓库根目录下用仓库根目录的浏览器地址栏内的地址，否则用“trunk”代替浏览器地址栏内地址中的“tree/master”
-    # 命令格式 拉取命令 插件源代码路径 
-    #===========================================================================================================     
+      
+        # 下载diy脚本
+        
 
-        svn co https://github.com/Twinzo1/AdGuardHome/trunk/luci-app-adguardhome 
+        svn co https://github.com/Twinzo1/AdGuardHome/trunk/luci-app-adguardhome &
         svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-adbyby-plus
         svn co https://github.com/281677160/openwrt-package/trunk/filebrowser
@@ -69,13 +64,13 @@ jobs:
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
         git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus
         
-        svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash 
+        svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash &
         
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
         
-            
-      
+        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-unblockmusic      
+
 
         svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom
         
