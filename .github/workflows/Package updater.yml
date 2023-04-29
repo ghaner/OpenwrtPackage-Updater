@@ -70,8 +70,8 @@ jobs:
         git_clone https://github.com/rufengsuixing/luci-app-onliner
         ) &
         (
-        
-        git_clone https://github.com/zzsj0928/luci-app-pushbot
+        git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
+        #git_clone https://github.com/zzsj0928/luci-app-pushbot
         #git_clone https://github.com/esirplayground/luci-app-poweroff
         #git_clone https://github.com/DevOpenWRT-Router/luci-app-rebootschedule
         #git_clone https://github.com/pymumu/openwrt-smartdns
