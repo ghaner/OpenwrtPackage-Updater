@@ -12,7 +12,7 @@
 # 每个括号内必须有一条bash命令 否则会导致失败 Syn upstream步骤会出现Error: Process completed with exit code 2.
 #====================================================================================================
 
-name: Merge-Upstream
+name: OpenwrtPackage-Update
 on:
   push:
     paths:
