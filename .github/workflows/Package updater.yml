@@ -79,7 +79,7 @@ jobs:
         ) &
         (
         #git_clone https://github.com/openwrt-develop/luci-theme-atmaterial
-        svn co https://github.com/281677160/openwrt-package/trunk/luci-app-fileassistant
+        svn co https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
         #git_clone https://github.com/sirpdboy/luci-theme-btmod
         #git_clone https://github.com/netitgo/luci-theme-jj
         #git_clone https://github.com/thinktip/luci-theme-neobird
