@@ -94,11 +94,11 @@ jobs:
         svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
         ) &
         (
-        svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
-        svn export https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
+        #svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
+        #svn export https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
         svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt aliyundrive-webdav && mvdir aliyundrive-webdav
-        svn export https://github.com/messense/aliyundrive-fuse/trunk/openwrt && mvdir openwrt
-        svn export https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest
+        #svn export https://github.com/messense/aliyundrive-fuse/trunk/openwrt && mvdir openwrt
+        #svn export https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest
         ) &
         (
         svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
