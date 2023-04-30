@@ -123,11 +123,14 @@ jobs:
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
          ) &
         (       
+        git_branch_clone master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
         #git_branch_clone master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
         ) &
         (
         git_sparse_clone master "https://github.com/coolsnowwolf/packages" "ledepackages" \
         net/iperf3 admin/netdata
+        git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic ./luci-app-unblockneteasemusic/
+        rm -rf ./luci-app-unblockneteasemusic/.github
         )     
         #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
         #git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns
