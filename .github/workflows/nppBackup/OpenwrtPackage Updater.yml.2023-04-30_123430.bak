@@ -162,7 +162,8 @@ jobs:
     - name: Modify
       continue-on-error: true
       run: |
-        
+        bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
+        bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
         # 清理石像鬼插件
         rm -rf *gargoyle*
         # 清理重复或非必要文件
@@ -173,7 +174,8 @@ jobs:
         rm -f subconverter/patches/010-missing-header.patch
         sed -i 's?../../luci.mk?$(TOPDIR)/feeds/luci/luci.mk?g' */Makefile
         sed -i 's?../../lang?$(TOPDIR)/feeds/packages/lang?g' */Makefile
-        
+        bash diy/create_acl_for_luci.sh -a || true
+        bash diy/convert_translation.sh -a || true
         sed -i 's/ca-certificates/ca-bundle/g' */Makefile
         #sed -i 's/+libcap /+libcap +libcap-bin /' luci-app-openclash/Makefile
         sed -i 's/@GHCODELOAD/https:\/\/codeload.github.com/' */Makefile
