@@ -126,7 +126,7 @@ jobs:
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
          ) &
         (       
-        git clone branch/master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
+        git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic/trunk
         ) &
         (
         git_sparse_clone master "https://github.com/coolsnowwolf/packages" "ledepackages" \
