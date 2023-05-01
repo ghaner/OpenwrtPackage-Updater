@@ -74,28 +74,28 @@ jobs:
         rm -rf $1
         }
 
-        
+        (
         git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
         #git_clone https://github.com/zzsj0928/luci-app-pushbot
         #git_clone https://github.com/esirplayground/luci-app-poweroff
         #git_clone https://github.com/DevOpenWRT-Router/luci-app-rebootschedule
         #git_clone https://github.com/pymumu/openwrt-smartdns
         #git_clone https://github.com/walkingsky/luci-wifidog luci-app-wifidog
-        
+        ) &
 
-        
+        (
         git_clone https://github.com/fw876/helloworld
         git_clone https://github.com/xiaorouji/openwrt-passwall
         svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall        
         svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
-        
+        )
 
-                
+        (        
         svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns
         svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
-        
-        
+        ) &
+        (
         #svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
         svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
         svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
@@ -104,8 +104,8 @@ jobs:
         #svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt aliyundrive-webdav && mvdir aliyundrive-webdav
         #svn export https://github.com/messense/aliyundrive-fuse/trunk/openwrt && mvdir openwrt
         #svn export https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest
-       
-       
+        ) &
+        (
         svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
         svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser   
         svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
@@ -113,7 +113,7 @@ jobs:
         
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
-         
+         ) &
 
   
         #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
