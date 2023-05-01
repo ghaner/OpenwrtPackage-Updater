@@ -1,6 +1,6 @@
 ## Setup instruction
 
-### Method 1 - Clone this repo directly
+### Method 1 - Clone this repo directly 怎么删除？
 
 1. Clone this repo:
 
