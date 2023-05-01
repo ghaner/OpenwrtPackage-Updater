@@ -14,7 +14,6 @@
 # Add a third-party Package:svn co Package-url
 # 拉取命令参考https://github.com/danshui-git/shuoming/blob/master/ming.md
 # 每个括号内必须有一条bash命令 否则会导致失败 Syn upstream步骤会出现Error: Process completed with exit code 2.
-# 可以增减括号数量。
 #====================================================================================================
 
 name: Update OpenwrtPackage 
@@ -74,6 +73,10 @@ jobs:
         rm -rf $1
         }
 
+        (
+        #git_clone https://github.com/sirpdboy/luci-app-netdata
+        git_clone https://github.com/rufengsuixing/luci-app-onliner
+        ) &
         (
         git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
         #git_clone https://github.com/zzsj0928/luci-app-pushbot
