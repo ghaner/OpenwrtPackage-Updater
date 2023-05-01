@@ -73,16 +73,9 @@ jobs:
         mv -n `find $1/* -maxdepth 0 -type d` ./
         rm -rf $1
         }
+
         
-        svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
-        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser   
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
-        svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
-        
-        
         #git_clone https://github.com/zzsj0928/luci-app-pushbot
         #git_clone https://github.com/esirplayground/luci-app-poweroff
         #git_clone https://github.com/DevOpenWRT-Router/luci-app-rebootschedule
@@ -91,20 +84,21 @@ jobs:
         
 
         
-        #git_clone https://github.com/fw876/helloworld
-        #git_clone https://github.com/xiaorouji/openwrt-passwall
-        #svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall        
-        #svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
-        
+        git_clone https://github.com/fw876/helloworld
+        git_clone https://github.com/xiaorouji/openwrt-passwall
+        svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall        
+        svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
+        svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         
 
                 
-        #svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns
-        #svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
+        svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns
+        svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
         
         
         #svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
-        
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
      
         #svn export https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
         #svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt aliyundrive-webdav && mvdir aliyundrive-webdav
@@ -112,8 +106,10 @@ jobs:
         #svn export https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest
        
        
-
-        #svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser   
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
+        svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
         
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
