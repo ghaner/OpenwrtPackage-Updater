@@ -99,7 +99,7 @@ jobs:
         #svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
         svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
         svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
-     
+        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
         #svn export https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
         #svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt aliyundrive-webdav && mvdir aliyundrive-webdav
         #svn export https://github.com/messense/aliyundrive-fuse/trunk/openwrt && mvdir openwrt
@@ -114,8 +114,13 @@ jobs:
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
          ) &
-
-  
+        (       
+        git clone --branch master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+        ) &
+        (
+        git_sparse_clone master "https://github.com/coolsnowwolf/packages" "ledepackages" \
+        net/iperf3 admin/netdata
+        )     
         #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
         #git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns
         #git_clone https://github.com/281677160/luci-app-autoupdate
