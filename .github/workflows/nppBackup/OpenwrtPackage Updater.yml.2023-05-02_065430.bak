@@ -7,12 +7,13 @@
 # 此仓库拉取编译所需要的openwrt源码软件包中没有或更优的源码,且为唯一的第三方feed.或者拉取编译不需要但是十分优秀的插件.
 # 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
 # 拉取命令：makefile文件在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
-# Package-url：trunk or branch/branch-name/Package-name。源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
+# Package-url：trunk or branch/branch-name/Package-name 源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
 # 例：
 # Add a third-party Package:git clone -b branch-name Package-url  分支克隆
 # Add a third-party Package:git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
 # Add a third-party Package:svn co Package-url
-# 可以增减括号数量，以包含一组拉取命令，也可以不要括号。每个括号内必须有一条可以执行的bash命令，否则会导致失败，Syn upstream步骤会出现Error: Process completed with exit code 2.
+# 每个括号内必须有一条bash命令 否则会导致失败 Syn upstream步骤会出现Error: Process completed with exit code 2.
+# 可以增减括号数量。
 #====================================================================================================
 
 name: Update OpenwrtPackage 
