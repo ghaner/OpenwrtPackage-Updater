@@ -1,6 +1,6 @@
 #
 # This is free software, lisence use MIT.
-# https://github.com/roacn/openwrt-packages
+# https://github.com/roacn/openwrt-packages/tree/master
 #
 name: Update OpenwrtPackage
 on:
@@ -86,24 +86,7 @@ jobs:
       run: |
         bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
         bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
-        # 清理石像鬼插件
-        rm -rf *gargoyle*
-        # 清理重复或非必要文件
-        rm -Rf */.git */.svn qt5 openwrt-{chinadns*,simple-obfs,v2ray-plugin,fullconenat,dnsforwarder} cups* subweb \
-
-        
-        
-        rm -f subconverter/patches/010-missing-header.patch
-        sed -i 's?../../luci.mk?$(TOPDIR)/feeds/luci/luci.mk?g' */Makefile
-        sed -i 's?../../lang?$(TOPDIR)/feeds/packages/lang?g' */Makefile
-        
-        sed -i 's/ca-certificates/ca-bundle/g' */Makefile
-        #sed -i 's/+libcap /+libcap +libcap-bin /' luci-app-openclash/Makefile
-        sed -i 's/@GHCODELOAD/https:\/\/codeload.github.com/' */Makefile
-        find */luasrc/view/ -maxdepth 2 -name "*.htm" | xargs -i sed -i 's?"http://" + window.location.hostname?window.location.protocol + "//" + window.location.hostname?g' {}
-        find ./*/ -maxdepth 1 -name "Makefile" ! -path "*tinyfecvpn*" ! -path "*gowebdav*" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
-        sed -i 's/SUBDIRS=/M=/g' */Makefile
-        # sed -i 's/\(add ucitrack \(.*\)\)/\1\n\tservice \2 enable/g' luci-app*/root/etc/uci-defaults/*
+      
 
     - name: Apply
       continue-on-error: true

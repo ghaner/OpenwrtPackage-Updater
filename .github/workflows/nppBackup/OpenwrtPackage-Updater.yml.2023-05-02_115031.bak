@@ -1,13 +1,25 @@
 #
 # This is free software, lisence use MIT.
-# https://github.com/roacn/openwrt-packages
-#
+# https://github.com/roacn/openwrt-packages/tree/master
+#====================================================================================================
+# third-party feed:
+#--------------------------------------------------------------------------------------------------
+# 此仓库拉取编译所需要的openwrt源码软件包中没有或更优的源码,且为唯一的第三方feed.或者拉取编译不需要但是十分优秀的插件.
+# 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
+# 拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
+# Package-url：trunk or branch/branch-name/Package-name) 源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
+# 例：
+# Add a third-party Package:git clone -b branch-name Package-url  分支克隆
+# Add a third-party Package:git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
+# Add a third-party Package:svn co Package-url
+# 可以增减括号数量（最小为零）。每个括号内必须有一条可以执行的bash命令，否则会导致失败，Syn upstream步骤会出现Error: Process completed with exit code 2.
+#====================================================================================================
+
 name: Update OpenwrtPackage
 on:
   push:
     paths:
       - '.github/workflows/OpenwrtPackage-Updater.yml'
-      - '.github/Pull_third_party_package.sh'
 
   schedule:
     - cron: 5 */12 * * *
@@ -58,7 +70,7 @@ jobs:
         rm -rf $1
         }
         
-        source ./.github/Pull_third_party_package.sh
+        source ./.github/Add_a_third_party_feed.sh
         
         for ipk in $(ls applications); do
         	if [[ $(ls -l applications/$ipk/po | wc -l) -gt 3 ]]; then
@@ -86,24 +98,7 @@ jobs:
       run: |
         bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
         bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
-        # 清理石像鬼插件
-        rm -rf *gargoyle*
-        # 清理重复或非必要文件
-        rm -Rf */.git */.svn qt5 openwrt-{chinadns*,simple-obfs,v2ray-plugin,fullconenat,dnsforwarder} cups* subweb \
-
-        
-        
-        rm -f subconverter/patches/010-missing-header.patch
-        sed -i 's?../../luci.mk?$(TOPDIR)/feeds/luci/luci.mk?g' */Makefile
-        sed -i 's?../../lang?$(TOPDIR)/feeds/packages/lang?g' */Makefile
-        
-        sed -i 's/ca-certificates/ca-bundle/g' */Makefile
-        #sed -i 's/+libcap /+libcap +libcap-bin /' luci-app-openclash/Makefile
-        sed -i 's/@GHCODELOAD/https:\/\/codeload.github.com/' */Makefile
-        find */luasrc/view/ -maxdepth 2 -name "*.htm" | xargs -i sed -i 's?"http://" + window.location.hostname?window.location.protocol + "//" + window.location.hostname?g' {}
-        find ./*/ -maxdepth 1 -name "Makefile" ! -path "*tinyfecvpn*" ! -path "*gowebdav*" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
-        sed -i 's/SUBDIRS=/M=/g' */Makefile
-        # sed -i 's/\(add ucitrack \(.*\)\)/\1\n\tservice \2 enable/g' luci-app*/root/etc/uci-defaults/*
+      
 
     - name: Apply
       continue-on-error: true
