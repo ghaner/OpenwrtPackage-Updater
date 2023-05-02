@@ -12,6 +12,8 @@ on:
       - '.github/workflows/OpenwrtPackage-Updater.yml'
       - '.github/Pull_third_party_package.sh'
 
+  schedule:
+    - cron: 5 */12 * * *
   workflow_dispatch:
 
   repository_dispatch:

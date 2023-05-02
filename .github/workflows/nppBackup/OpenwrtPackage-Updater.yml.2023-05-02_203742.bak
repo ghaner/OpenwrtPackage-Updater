@@ -1,10 +1,7 @@
 #
 # This is free software, lisence use MIT.
 # https://github.com/roacn/openwrt-packages
-# https://github.com/xiangfeidexiaohuo/openwrt-packages
-# https://github.com/759071793/openwrt_packages
-# https://github.com/kiddin9/openwrt-packages
-# 
+##
 name: Update OpenwrtPackage
 on:
   push:
@@ -12,6 +9,8 @@ on:
       - '.github/workflows/OpenwrtPackage-Updater.yml'
       - '.github/Pull_third_party_package.sh'
 
+  schedule:
+    - cron: 5 */12 * * *
   workflow_dispatch:
 
   repository_dispatch:
