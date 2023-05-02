@@ -43,7 +43,6 @@ TIME() {
 # git clone -b branch-name Package-url  分支克隆
 # git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
 # svn co Package-url
-#--------------------------------------------------------------------------------------------------
 #echo
 #TIME y "添加 Package-name"
 # git clone -b branch-name Package-url  

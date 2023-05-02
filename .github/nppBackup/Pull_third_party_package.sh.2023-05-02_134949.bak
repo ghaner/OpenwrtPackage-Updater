@@ -43,7 +43,6 @@ TIME() {
 # git clone -b branch-name Package-url  分支克隆
 # git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
 # svn co Package-url
-#--------------------------------------------------------------------------------------------------
 #echo
 #TIME y "添加 Package-name"
 # git clone -b branch-name Package-url  
@@ -54,21 +53,21 @@ echo
 TIME y "cus_script/Add_third_party_package.sh开始添加 third-party package:"
 echo
 TIME y "添加 adguardhome"
-svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
 echo
 TIME y "添加 filebrowser"
-svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
-svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser  
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser  
 echo
 TIME y "添加 fileassistant"	
-svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
 echo
 TIME y "添加 openclash"		
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+        svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 echo
 TIME y "添加 timedreboot"		
-git_clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
+        git_clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
 		
         #git_clone https://github.com/sirpdboy/luci-app-advanced
         #git_clone https://github.com/sirpdboy/luci-app-autotimeset
