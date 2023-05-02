@@ -5,7 +5,7 @@
 [![openwrt](https://img.shields.io/badge/source-openwrt-magenta.svg?style=flat&logo=appveyor)](https://github.com/openwrt/openwrt) 
 [![Lean](https://img.shields.io/badge/source-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 
 [![OpenWrt-Compiler ](https://img.shields.io/badge/OpenWrt--Compiler-ghaner-red)](https://github.com/ghaner/OpenWrt-Compiler) 
-[![OpenwrtPackage-Updater](https://img.shields.io/badge/OpenwrtPackage--Updater-ghaner-blue)](https://github.com/ghaner/OpenwrtPackage-Updater)
+[![OpenwrtPackage-Updater](https://img.shields.io/badge/ssrplus-fw876-blue.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenwrtPackage-Updater)
 
 
 | 插件                         | 说明                                                         | 源码官方仓库                                               |
