@@ -1,7 +1,7 @@
 #
 # This is free software, lisence use MIT.
 # https://github.com/roacn/openwrt-packages
-#
+##
 name: Update OpenwrtPackage
 on:
   push:
