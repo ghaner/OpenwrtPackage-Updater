@@ -70,7 +70,7 @@ jobs:
         rm -rf $1
         }
         
-        source ./.github/Add_third_party_package.sh
+        bash -x ./.github/Add_third_party_package.sh
         
         for ipk in $(ls applications); do
         	if [[ $(ls -l applications/$ipk/po | wc -l) -gt 3 ]]; then
