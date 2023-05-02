@@ -6,13 +6,15 @@
 #--------------------------------------------------------------------------------------------------
 # 此仓库拉取编译所需要的openwrt源码软件包中没有或更优的源码,且为唯一的第三方feed.或者拉取编译不需要但是十分优秀的插件.
 # 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
-# 拉取命令：makefile文件在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
-# Package-url：trunk or branch/branch-name/Package-name。源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
+# 拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。
+# Package-url：trunk or branch/branch-name/Package-name) 源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
 # 例：
 # Add a third-party Package:git clone -b branch-name Package-url  分支克隆
 # Add a third-party Package:git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
 # Add a third-party Package:svn co Package-url
-# 可以增减括号数量，以包含一组拉取命令，也可以不要括号。每个括号内必须有一条可以执行的bash命令，否则会导致失败，Syn upstream步骤会出现Error: Process completed with exit code 2.
+# 拉取命令参考https://github.com/danshui-git/shuoming/blob/master/ming.md
+# 每个括号内必须有一条bash命令 否则会导致失败 Syn upstream步骤会出现Error: Process completed with exit code 2.
+# 可以增减括号数量。
 #====================================================================================================
 
 name: Update OpenwrtPackage 
@@ -71,53 +73,57 @@ jobs:
         mv -n `find $1/* -maxdepth 0 -type d` ./
         rm -rf $1
         }
-        
-        svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
-        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser   
-        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
-        svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+
+        (
         git clone --depth 1 https://github.com/kongfl888/luci-app-timedreboot
-        
-        
         #git_clone https://github.com/zzsj0928/luci-app-pushbot
         #git_clone https://github.com/esirplayground/luci-app-poweroff
         #git_clone https://github.com/DevOpenWRT-Router/luci-app-rebootschedule
         #git_clone https://github.com/pymumu/openwrt-smartdns
         #git_clone https://github.com/walkingsky/luci-wifidog luci-app-wifidog
-        
-
-        
-        #git_clone https://github.com/fw876/helloworld
-        #git_clone https://github.com/xiaorouji/openwrt-passwall
-        #svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall        
-        #svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
-        
-        
-
-                
-        #svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns
-        #svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
-        
-        
+        ) &
+        (
+        git_clone https://github.com/openwrt-develop/luci-theme-atmaterial
+        #git_clone https://github.com/sirpdboy/luci-theme-btmod
+        #git_clone https://github.com/netitgo/luci-theme-jj
+        #git_clone https://github.com/thinktip/luci-theme-neobird
+        #git_clone https://github.com/sirpdboy/luci-theme-opentopd
+        ) &
+        (
+        git_clone https://github.com/fw876/helloworld
+        git_clone https://github.com/xiaorouji/openwrt-passwall
+        svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall        
+        svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
+        svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+        svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns
+        svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns
+        ) &
+        (
         #svn export https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
-        
-     
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
+        svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-ttyd
         #svn export https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
         #svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt aliyundrive-webdav && mvdir aliyundrive-webdav
         #svn export https://github.com/messense/aliyundrive-fuse/trunk/openwrt && mvdir openwrt
         #svn export https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest
-       
-       
-
-        #svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
+        ) &
+        (
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/filebrowser
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser   
+        svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
+        svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
         
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
         #svn export https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos/trunk/tencentcloud_cos luci-app-tencentcloud-cos
-         
-
-  
+         ) &
+        (       
+        git clone --branch master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+        ) &
+        (
+        git_sparse_clone master "https://github.com/coolsnowwolf/packages" "ledepackages" \
+        net/iperf3 admin/netdata
+        )     
         #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
         #git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns
         #git_clone https://github.com/281677160/luci-app-autoupdate
@@ -172,7 +178,7 @@ jobs:
     - name: Apply
       continue-on-error: true
       run: |
-        Emoji=("♒" "♓" "♈" "♉" "♊" "♋" "♌" "♍" "♎" "♏" "♐" "♑" "🐭" "🐮" "🐯" "🐇" "🐲" "🐍" "🐎" "🐐" "🐵" "🐔" "🐶" "🐷")
+        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
         git add .
         git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M)"
         git push -f
