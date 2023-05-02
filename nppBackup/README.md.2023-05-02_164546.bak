@@ -16,3 +16,7 @@
 | [luci-app-openclash](https://github.com/vernesong/OpenClash)|A Clash Client For OpenWrt|https://github.com/vernesong/OpenClash|
 | [luci-app-timedreboot](https://github.com/kongfl888/luci-app-timedreboot)|定时重启|https://github.com/kongfl888/luci-app-timedreboot| 
 
+### 自定义编译命令
+```yaml
+git clone https://github.com/ghaner/OpenwrtPackage-Updater package/third-party-feed 
+```
