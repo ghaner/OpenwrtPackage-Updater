@@ -10,7 +10,7 @@
 
 | 插件                         | 说明                                                         | 源码仓库                                                           |
 | ---------------------------- | ------------------------------------------------------------ |------------------------------------------------------------|     
-| [luci-app-adguardhome](https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome)            | 全网广告拦截与反跟踪软件      | https://github.com/AdguardTeam/AdGuardHome     |                                                            |                                                           
+| [luci-app-advanced](https://github.com/kenzok8/small-package)            | 高级设置，包括smartdns，openclash，防火墙，DHCP等            |                                                            |                                                           
 | luci-app-aliyundrive-fuse    | 阿里云盘 Fuse 服务                                           |                                                            | 
 | luci-app-aliyundrive-webdav  | 阿里云盘 WebDAV 服务                                         |                                                            | 
 | luci-app-argon-config        | argon主题设置                                                |                                                            |
