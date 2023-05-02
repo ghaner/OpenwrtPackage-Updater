@@ -51,7 +51,7 @@ TIME() {
 # svn co Package-url
 #============================================================================================
 echo
-TIME y ".github\Pull_third_party_package.sh开始添加 third-party package:"
+TIME y "cus_script/Add_third_party_package.sh开始添加 third-party package:"
 echo
 TIME y "添加 adguardhome"
 svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
@@ -154,5 +154,5 @@ git_clone https://github.com/kongfl888/luci-app-timedreboot
 #TIME y "添加 网络测速"
 #git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 
-TIME y "添加 third-party package 结束"
+TIME y "添加 third-party software 结束"
 #----------------------------------------------------------------------------------------------------------
