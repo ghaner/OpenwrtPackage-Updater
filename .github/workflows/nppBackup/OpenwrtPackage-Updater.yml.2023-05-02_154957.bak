@@ -73,19 +73,19 @@ jobs:
         mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
         mv -n helloworld/* ./ ; rm -Rf helloworld
         mv -n openwrt-smartdns smartdns
-        cp -rf .github/.diy/packages/* ./ || true
+        cp -rf .diy/packages/* ./ || true
         rm -Rf */.git
         
     - name: Apply patches
       continue-on-error: true
       run: |
-        find ".github/.diy/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 -E --forward --no-backup-if-mismatch"
+        find ".diy/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 -E --forward --no-backup-if-mismatch"
         
     - name: Modify
       continue-on-error: true
       run: |
-        bash .github/.diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
-        bash .github/.diy/convert_translation.sh -a >/dev/null 2>&1 || true
+        bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
+        bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
       
 
     - name: Apply
