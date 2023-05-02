@@ -1,84 +1,44 @@
-## Setup instruction
+### OpenWrt — 常用插件
 
-### Method 1 - Clone this repo directly
+#### luci 18.06 19.07 通用
 
-1. Clone this repo:
+[![openwrt](https://img.shields.io/badge/source-openwrt-magenta.svg?style=flat&logo=appveyor)](https://github.com/openwrt/openwrt) 
+[![Lean](https://img.shields.io/badge/source-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 
+[![passwall](https://img.shields.io/badge/passwall-xiaorouji-orange.svg?style=flat&logo=appveyor)](https://github.com/xiaorouji/openwrt-passwall) 
+[![ssr plus](https://img.shields.io/badge/ssrplus-fw876-blue.svg?style=flat&logo=appveyor)](https://github.com/fw876/helloworld)
+[![actions](https://img.shields.io/badge/actions-roa-tomato.svg?style=flat&logo=appveyor)](https://github.com/roacn/build-actions) 
+[![apps](https://img.shields.io/badge/compile-roa-deeppink.svg?style=flat&logo=appveyor)](https://github.com/roacn/compile-packages)
+![code-size](https://img.shields.io/github/languages/code-size/roacn/openwrt-packages?color=blueviolet)
 
-	```bash
-	rm -rf package/helloworld
-	git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
-	```
 
-2. Pull upstream commits:
-
-	```bash
-	git -C package/helloworld pull
-	```
-
-- Remove
-
-  ```bash
-  rm -rf package/helloworld
-  ```
-
-### Method 2 - Add this repo as a git submodule
-
-1. Add new submodule:
-
-	```bash
-	rm -rf package/helloworld
-	git submodule add -f --name helloworld https://github.com/fw876/helloworld.git package/helloworld
-	```
-
-2. Pull upstream commits:
-
-	```bash
-	git submodule update --remote package/helloworld
-	```
-
-- Remove
-
-  ```bash
-  git submodule deinit -f package/helloworld
-  git rm -f package/helloworld
-  git reset HEAD .gitmodules
-  rm -rf .git/modules{/,/package/}helloworld
-  ```
-
-### Method 3 - Add this repo as an OpenWrt feed
-
-1. Add new feed:
-
-	```bash
-	sed -i "/helloworld/d" "feeds.conf.default"
-	echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-	```
-
-2. Pull upstream commits:
-
-	```bash
-	./scripts/feeds update helloworld
-	./scripts/feeds install -a -f -p helloworld
-	```
-
-- Remove
-
-  ```bash
-  sed -i "/helloworld/d" "feeds.conf.default"
-  ./scripts/feeds clean
-  ./scripts/feeds update -a
-  ./scripts/feeds install -a
-  ```
-
-### Note
-
-#### ⚠ For OpenWrt 21.02 or lower version
-You have to manually upgrade Golang toolchain to [1.19](https://github.com/openwrt/packages/tree/openwrt-22.03/lang/golang) or higher to compile Xray-core.
-
-e.g.:
-
-```bash
-./scripts/feeds update packages
-rm -rf feeds/packages/lang/golang
-svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
-```
+| 插件                         | 说明                                                         |
+| ---------------------------- | ------------------------------------------------------------ |
+| luci-app-advanced            | 高级设置，包括smartdns，openclash，防火墙，DHCP等            |
+| luci-app-aliyundrive-fuse    | 阿里云盘 Fuse 服务                                           |
+| luci-app-aliyundrive-webdav  | 阿里云盘 WebDAV 服务                                         |
+| luci-app-argon-config        | argon主题设置                                                |
+| luci-app-autotimeset         | 定时设置                                                     |
+| luci-app-autoupdate          | 自动更新固件                                                 |
+| luci-app-beardropper         | 带有 iptables 防火墙规则生成响应的日志检查脚本               |
+| luci-app-cloudflarespeedtest | 定时执行Cloudflare IP 速度测试的插件                         |
+| luci-app-mosdns              | DNS 分流解析与广告过滤                                       |
+| luci-app-netdata             | 实时监控                                                     |
+| luci-app-netspeedtest        | 网络速度诊断测试<br />(包括：内网网页版测速、内网iperf3吞吐测速、外网speedtest.net网速测试、特定服务器的端口延迟测速) |
+| luci-app-nginx-manager       | 管理openwrt的nginx，替代默认的uhttpd做为路由后台的web服务器  |
+| luci-app-onliner             | 通过arp实现的在线人员查看                                    |
+| luci-app-openclash           | openclash                                                    |
+| luci-app-passwall            | passwall                                                     |
+| luci-app-passwall2           | passwall                                                     |
+| luci-app-poweroff            | 关机                                                         |
+| luci-app-pushbot             | 全能推送<br />支持：钉钉推送,企业微信推送,PushPlus推送,微信推送,企业微信应用推送,飞书推送,钉钉机器人推送,企业微信机器人推送,飞书机器人 |
+| luci-app-rebootschedule      | 定时任务                                                     |
+| luci-app-shortcutmenu        | 快捷菜单                                                     |
+| luci-app-smartdns            | SmartDNS，DNS解析                                            |
+| luci-app-ssr-plus            | SSR Plus                                                     |
+| luci-app-tencentcloud-cos    | 腾讯云                                                       |
+| luci-app-tencentddns         | 腾讯DDNS                                                      |
+| luci-app-unblockmusic        | 解除网易云音乐播放限制                                       |
+| luci-app-unblockneteasemusic | 解除网易云音乐播放限制                                       |
+| luci-app-wifidog             | wifidog的luci管理界面                                        |
+| luci-app-wolplus             | 网络唤醒                                                     |
+| iperf3                       | 网络吞吐测试                                                 |
