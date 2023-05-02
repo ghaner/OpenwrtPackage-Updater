@@ -7,7 +7,6 @@ on:
   push:
     paths:
       - '.github/workflows/OpenwrtPackage-Updater.yml'
-      - '.github/Add_third_party_package.sh'
 
   schedule:
     - cron: 5 */12 * * *
