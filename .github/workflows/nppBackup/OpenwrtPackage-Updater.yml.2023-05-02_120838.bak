@@ -1,0 +1,117 @@
+#
+# This is free software, lisence use MIT.
+# https://github.com/roacn/openwrt-packages/tree/master
+#====================================================================================================
+# third-party feed:
+#--------------------------------------------------------------------------------------------------
+# 此仓库拉取编译所需要的openwrt源码软件包中没有或更优的源码,且为唯一的第三方feed.或者拉取编译不需要但是十分优秀的插件.
+# 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
+# 拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
+# Package-url：trunk or branch/branch-name/Package-name) 源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
+# 例：
+# Add a third-party Package:git clone -b branch-name Package-url  分支克隆
+# Add a third-party Package:git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
+# Add a third-party Package:svn co Package-url
+# 可以增减括号数量（最小为零）。每个括号内必须有一条可以执行的bash命令，否则会导致失败，Syn upstream步骤会出现Error: Process completed with exit code 2.
+#====================================================================================================
+
+name: Update OpenwrtPackage
+on:
+  push:
+    paths:
+      - '.github/workflows/OpenwrtPackage-Updater.yml'
+
+  schedule:
+    - cron: 5 */12 * * *
+  workflow_dispatch:
+
+  repository_dispatch:
+
+jobs:
+  merge:
+    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
+    runs-on: Ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set git identity
+      run : |
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        sudo timedatectl set-timezone "Asia/Shanghai"
+        
+    - name: Syn upstream
+      run: |
+        shopt -s extglob
+        git rm -r --cache * >/dev/null 2>&1 &
+        rm -rf `find ./* -maxdepth 0 -type d ! -name ".diy"` >/dev/null 2>&1
+        function git_clone() (
+          git clone --depth 1 $1 $2 || true
+        )
+        function git_branch_clone() (
+          git clone --depth=1 -b $1 $2 || true
+        )
+        function git_sparse_clone() (
+          branch="$1" rurl="$2" localdir="$3" && shift 3
+          git clone -b $branch --depth 1 --filter=blob:none --sparse $rurl $localdir
+          cd $localdir
+          git sparse-checkout init --cone
+          git sparse-checkout set $@
+          mv -n $@ ../
+          cd ..
+          rm -rf $localdir
+          )
+        function mvdir() {
+        mv -n `find $1/* -maxdepth 0 -type d` ./
+        rm -rf $1
+        }
+        
+        source ./.github/Add_third_party_package.sh
+        
+        for ipk in $(ls applications); do
+        	if [[ $(ls -l applications/$ipk/po | wc -l) -gt 3 ]]; then
+        		rm -rf applications/$ipk
+        	fi
+        done
+        
+    - name: Delete duplicated packages
+      continue-on-error: true
+      run: |
+        shopt -s extglob
+        mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
+        mv -n helloworld/* ./ ; rm -Rf helloworld
+        mv -n openwrt-smartdns smartdns
+        cp -rf .diy/packages/* ./ || true
+        rm -Rf */.git
+        
+    - name: Apply patches
+      continue-on-error: true
+      run: |
+        find ".diy/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 -E --forward --no-backup-if-mismatch"
+        
+    - name: Modify
+      continue-on-error: true
+      run: |
+        bash .diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
+        bash .diy/convert_translation.sh -a >/dev/null 2>&1 || true
+      
+
+    - name: Apply
+      continue-on-error: true
+      run: |
+        Emoji=("🐹" "🐮" "🐯" "🐰" "🐲" "🐍" "🐴" "🐐" "🐵" "🐓" "🐶" "🐷" "♒" "♓" "♈" "♉️" "♊" "♋" "♌" "♍️" "♎" "♏" "♐" "♑")
+        git add .
+        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M)"
+        git push -f
+        
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      continue-on-error: true
+      with:
+        retain_days: 1
+        keep_minimum_runs: 3
+        
