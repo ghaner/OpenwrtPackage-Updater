@@ -23,23 +23,30 @@ TIME() {
       }
 }
 
-
-
+#===========================================================================================================================
+# 第三方插件最好先拉进仓库https://github.com/ghaner/openwrt-package,再由之作为唯一的feed,除有条件的软件外不在此处单独添加第三方插件.
+# 命令格式 拉取命令 插件源代码路径 package/third-party-package/package-name（编译文件路径）
+# 拉取命令：插件编译源代码的makefile文件在仓库根目录下用git clone命令，其他用svn co命令
+# 插件源代码路径  插件编译源代码的makefile文件在仓库根目录下为仓库根目录的浏览器地址栏内的地址，否则用“trunk”代替浏览器地址栏内地址中的“tree/master”
+# Add a third-party package:git clone -b branch-name package-url.git package/third-party-package/package-name
+# Add a third-party package:git clone --depth=1 package-url package/third-party-package/package-name
+# Add a third-party package:svn co package-url(/trunk or branch/branch-name/package-name) package/third-party-package/package-name
+#---------------------------------------------------------------------------------------------------------------------------
 #====================================================================================================
-# Add_third_party_package:最好先拉进仓库https://github.com/ghaner/OpenwrtPackage-Updater,再由之作为唯一的feed,除有条件的软件外不在此处单独添加第三方插件.
+# third-party feed:
 #--------------------------------------------------------------------------------------------------
 # 此仓库拉取编译所需要的openwrt源码软件包中没有或更优的源码,且为唯一的第三方feed.或者拉取编译不需要但是十分优秀的插件.
 # 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
 # 拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
-# Package-url：trunk or branch/branch-name/Package-name) 源码仓库浏览器地址栏内的路径中的tree/master 替换成 trunk;tree/branch 替换成 branch/branch-name
+# Package-url：trunk or branch/branch-name/Package-name) 源码路径中的tree/master 替换成 trunk;源码路径中的tree/branch 替换成 branch/branch-name
 # 例：
-# git clone -b branch-name Package-url  分支克隆
-# git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
-# svn co Package-url
+# Add a third-party Package:git clone -b branch-name Package-url  分支克隆
+# Add a third-party Package:git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
+# Add a third-party Package:svn co Package-url
 # 可以增减括号数量（最小为零）。每个括号内必须有一条可以执行的bash命令，否则会导致失败，Syn upstream步骤会出现Error: Process completed with exit code 2.
 #====================================================================================================
 echo
-TIME y ".github/Add_third_party_package.sh开始添加 third-party package:"
+TIME y "cus_script/Add_third_party_package.sh开始添加 third-party package:"
 #if [[ ${REGULAR_UPDATE} == "true" ]]; then
 #    echo
 #    TIME y "添加 luci-app-autoupdate:"
