@@ -103,7 +103,7 @@ jobs:
 
 
 
-
+rm LICENSE
 mv LICENSE.packages LICENSE
         
         rm -f subconverter/patches/010-missing-header.patch
