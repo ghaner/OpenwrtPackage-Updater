@@ -11,7 +11,7 @@
 | 插件                         | 说明                                                         | 源码仓库                                                           |
 | ---------------------------- | ------------------------------------------------------------ |------------------------------------------------------------|     
 | [luci-app-adguardhome](https://github.com/kenzok8/openwrt-packages)            | 全网广告拦截与反跟踪软件      | https://github.com/AdguardTeam/AdGuardHome     |                                                            |                                                           
-| [luci-app-filebrowser](https://github.com/ghaner/OpenWrt-Packages)    | a create-your-own-cloud-kind of software                                           |  https://filebrowser.org/ |                                                          | 
+| luci-app-aliyundrive-fuse    | 阿里云盘 Fuse 服务                                           |                                                            | 
 | luci-app-aliyundrive-webdav  | 阿里云盘 WebDAV 服务                                         |                                                            | 
 | luci-app-argon-config        | argon主题设置                                                |                                                            |
 | luci-app-autotimeset         | 定时设置                                                     |                                                            | 
