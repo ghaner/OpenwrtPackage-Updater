@@ -94,17 +94,12 @@ jobs:
         rm -rf ./*/.git
         rm -rf ./*/.svn 
         rm -f .gitattributes .gitignore
-        rm -rf ./*/.gitignore
+        rm -ff ./*/.gitignore
         rm -rf .github
         rm LICENSE
         mv LICENSE.packages
         
-      
-
-
-
-rm LICENSE
-mv LICENSE.packages LICENSE
+        
         
         rm -f subconverter/patches/010-missing-header.patch
         sed -i 's?../../luci.mk?$(TOPDIR)/feeds/luci/luci.mk?g' */Makefile
