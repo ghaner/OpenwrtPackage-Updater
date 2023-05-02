@@ -66,7 +66,15 @@ jobs:
         	fi
         done
         
-
+    - name: Delete duplicated packages
+      continue-on-error: true
+      run: |
+        shopt -s extglob
+        mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
+        mv -n helloworld/* ./ ; rm -Rf helloworld
+        mv -n openwrt-smartdns smartdns
+        cp -rf .diy/packages/* ./ || true
+        rm -Rf */.git
         
     - name: Apply patches
       continue-on-error: true
@@ -89,7 +97,7 @@ jobs:
         rm -rf ./*/LICENSE.packages
         rm -f .gitattributes .gitignore
 
-        rm -f LICENSE
+        rm LICENSE
         
         
         
