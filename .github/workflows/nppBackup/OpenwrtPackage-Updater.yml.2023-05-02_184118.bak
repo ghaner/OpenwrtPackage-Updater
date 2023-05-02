@@ -93,7 +93,6 @@ jobs:
         rm -rf .svn
         rm -rf ./*/.git
         rm -rf ./*/.svn 
-        rm -rf ./*/.gitignore 
         rm -f .gitattributes .gitignore
         rm -rf .github
         rm LICENSE
