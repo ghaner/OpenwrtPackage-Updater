@@ -94,11 +94,10 @@ jobs:
         rm -rf ./*/.git
         rm -rf ./*/.svn 
         rm -rf ./*/.gitignore 
-        rm -rf ./*/LICENSE.packages
         rm -f .gitattributes .gitignore
 
         rm LICENSE
-        
+        mv LICENSE.packages LICENSE
         
         
         rm -f subconverter/patches/010-missing-header.patch
