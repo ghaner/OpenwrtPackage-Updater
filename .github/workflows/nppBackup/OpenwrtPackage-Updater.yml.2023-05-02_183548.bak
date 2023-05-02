@@ -104,7 +104,7 @@ jobs:
 
 
 
-
+mv LICENSE.packages LICENSE
         
         rm -f subconverter/patches/010-missing-header.patch
         sed -i 's?../../luci.mk?$(TOPDIR)/feeds/luci/luci.mk?g' */Makefile
