@@ -90,14 +90,7 @@ jobs:
         rm -rf *gargoyle*
         # 清理重复或非必要文件
         rm -Rf */.git */.svn qt5 openwrt-{chinadns*,simple-obfs,v2ray-plugin,fullconenat,dnsforwarder} cups* subweb \
-        rm -rf .svn
-        rm -rf ./*/.git
-        rm -rf ./*/.svn 
-        rm -rf ./*/.gitignore 
-        rm -f .gitattributes .gitignore
 
-        rm LICENSE
-        mv LICENSE.packages LICENSE
         
         
         rm -f subconverter/patches/010-missing-header.patch
