@@ -2,11 +2,11 @@
 # This is free software, lisence use MIT.
 # https://github.com/roacn/openwrt-packages/tree/master
 
-name: Updater OpenwrtPackage
+name: Merge-Upstream
 on:
   push:
     paths:
-      - '.github/workflows/OpenwrtPackage-Updater.yml'
+      - '.github/workflows/sync.yml'
       - '.gitignore'
       - '.diy/**'
   schedule:
