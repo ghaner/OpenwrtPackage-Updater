@@ -71,7 +71,7 @@ TIME y "添加 openclash"
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 echo
 TIME y "添加 timedreboot"		
-git_clone https://github.com/kongfl888/luci-app-timedreboot
+git clone https://github.com/kongfl888/luci-app-timedreboot
 		
         #git_clone https://github.com/sirpdboy/luci-app-advanced
         #git_clone https://github.com/sirpdboy/luci-app-autotimeset
