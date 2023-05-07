@@ -109,10 +109,15 @@ jobs:
     - name: Apply
       continue-on-error: true
       run: |
-        Emoji=("🐹" "🐮" "🐯" "🐰" "🐲" "🐍" "🐴" "🐐" "🐵" "🐓" "🐶" "🐷" "♒" "♓" "♈" "♉️" "♊" "♋" "♌" "♍️" "♎" "♏" "♐" "♑")
-        git add .
-        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M)"
-        git push -f
+        if git status --porcelain | grep .; then      
+          Emoji=("🐹" "🐮" "🐯" "🐰" "🐲" "🐍" "🐴" "🐐" "🐵" "🐓" "🐶" "🐷" "♒" "♓" "♈" "♉️" "♊" "♋" "♌" "♍️" "♎" "♏" "♐" "♑")
+          git add .
+          git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M)"
+          git push -f
+        else
+          echo "nothing to commit"
+          exit 0
+        fi || exit 0
         
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
