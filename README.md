@@ -2,9 +2,9 @@
 
 [![openwrt](https://img.shields.io/badge/source-openwrt-blue.svg?style=flat&logo=appveyor)](https://github.com/openwrt/openwrt) 
 [![Lean](https://img.shields.io/badge/source-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 
-[![OpenWrt-Compiler ](https://img.shields.io/badge/OpenWrt--Compiler-ghaner-red.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenWrt-Compiler) 
-[![OpenwrtPackage-Updater](https://img.shields.io/badge/OpenwrtPackage--Updater-ghaner-blue.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenwrtPackage-Updater)
-[![OpenWrt-Package](https://img.shields.io/badge/OpenWrt--Package-ghaner-yellow.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenWrt-Package)
+[![OpenWrtCompiler ](https://img.shields.io/badge/OpenWrt--Compiler-ghaner-red.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenWrtCompiler) 
+[![OpenwrtPackageUpdater](https://img.shields.io/badge/OpenwrtPackage--Updater-ghaner-blue.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenwrtPackageUpdater)
+[![OpenWrtPackage](https://img.shields.io/badge/OpenWrt--Package-ghaner-yellow.svg?style=flat&logo=appveyor)](https://github.com/ghaner/OpenWrtPackage)
 
 
 | 插件                         | 说明                                                         | 源码官方仓库                                               |
