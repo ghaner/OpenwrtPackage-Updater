@@ -63,9 +63,9 @@ svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-filebrowser
 echo
 TIME y "添加 fileassistant"	
 svn export https://github.com/ghaner/OpenWrt-Packages/trunk/luci-app-fileassistant
-echo
-TIME y "添加 ikoolproxy"	
-git clone https://github.com/ilxp/luci-app-ikoolproxy
+#echo
+#TIME y "添加 ikoolproxy"	
+#git clone https://github.com/ilxp/luci-app-ikoolproxy
 echo
 TIME y "添加 openclash"		
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
