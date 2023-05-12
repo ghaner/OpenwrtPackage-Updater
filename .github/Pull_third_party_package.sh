@@ -74,7 +74,7 @@ TIME y "添加 timedreboot"
 git clone https://github.com/kongfl888/luci-app-timedreboot
 echo
 TIME y "添加 luci-theme-argon"		
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon		
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon	
 		
         #git_clone https://github.com/sirpdboy/luci-app-advanced
         #git_clone https://github.com/sirpdboy/luci-app-autotimeset
