@@ -34,11 +34,11 @@ TIME() {
 #    自己不需要但口碑较好
 # 拉取仓库源代码命令格式（每部分间隔一个空格）：拉取命令 -命令参数  Package-url
 # 步骤
-#1.浏览器打开源代码makefile文件所在的文件夹（不要打开makefile文件）。
-#2.Package-url
-#2.1复制makefile文件所在的文件夹的浏览器地址栏内的地址
-#2.2替换makefile文件不在仓库根目录时的地址：用trunk替换tree/master;用branch/branch-name替换tree/branch
-#3.拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
+#1.编辑Package-url
+#1.1浏览器打开源代码makefile文件所在的文件夹（不要打开makefile文件）。
+#1.2复制makefile文件所在的文件夹的浏览器地址栏内的地址
+#1.3替换makefile文件不在仓库根目录时的地址：用trunk替换tree/master;用branch/branch-name替换tree/branch
+#2.拉取命令：makefile在仓库根目录下的用git clone命令，其他目录用svn co或svn export命令。参考https://github.com/danshui-git/shuoming/blob/master/ming.md
 #例：
 # git clone -b branch-name Package-url  分支克隆
 # git clone --depth=n Package-url       深度克隆 n：最近n次提交的代码
